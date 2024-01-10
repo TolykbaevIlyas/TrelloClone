@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
 import { ITaskApi } from "./types";
 
 export const taskApi = createApi({
@@ -6,7 +7,7 @@ export const taskApi = createApi({
     tagTypes: ['Tasks'],
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/' }),
     endpoints: (builder) => ({
-      getAllTasks: builder.query<ITaskApi | any , string>({
+      getAllTasks: builder.query< any , string>({
         query: () => `tasks`,
         providesTags: (result) => result
           ? [
