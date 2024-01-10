@@ -3,14 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"next dev\" \"npm run server\"",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server": "json-server -w db.json -p 3001"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
+    "concurrently": "^8.2.2",
     "install": "^0.13.0",
+    "json-server": "^1.0.0-alpha.16",
     "next": "14.0.4",
     "npm": "^10.2.5",
     "react": "^18",
