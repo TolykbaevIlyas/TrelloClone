@@ -15,7 +15,14 @@ export default function Home() {
         <div className='border-2 rounded-lg w-44 min-h-72 text-center'>
           <div className='border-b-2'>{board.title}</div>
           {board.items.map(item => 
-            <div className='cursor-grab m-2 p-2 border-2 rounded-xl' draggable={true} >
+            <div 
+                onDragOver={(e)=> dragOverHandler(e,board,item)}
+                onDragLeave={e => dragLeaveHandler(e)}
+                onDragStart={(e)=> dragStartHandler(e)}
+                onDragEnd={(e)=> DragEndHandler(e)}
+                onDrop={(e)=> drapHandler(e,board,item)}
+                className='cursor-grab m-2 p-2 border-2 rounded-xl' 
+                draggable={true} >
               {item.title}
             </div>)}
         </div>)}
